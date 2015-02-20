@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'status_updates#index'
+
+  get 'status_updates/new'
+
+  get 'status_updates/show'
+
+  get 'status_updates/edit'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
