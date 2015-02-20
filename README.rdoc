@@ -1,0 +1,70 @@
+Crud "status updates" like in Facebook. Fields are status (text), user (string) and number of likes (integer). All three should be present with validations.
+There should be at least one capybara spec to cover it.
+Create and update redirect to show. There should be flash messages.
+Everyone should spend no more than a few minutes before asking, or looking it up, and should write down what they needed help with in detail (so everyone should have a list of things they missed) and will submit a write up.
+All class time of 3:30 is the time to beat (as a class)
+Once you accept someone, they can opt to become acceptors and can put their names in a board. Submit and do the write up when you are done.
+
+Button for likes has to increment integer by one.
+
+
+
+cd into your new directory
+bundle
+bin/rake db:create
+  Note that this command only describes what the database will LOOK like. The database doesn’t actually exist yet.
+rails g migration create_organizations x:string, y:date, etc.
+bin/rake db:migrate
+This command is what actually CREATES the database. Which is confusing based on the wording, but there ya go.
+Make a model file called organization.rb, lowercase, singular.
+In that file, write:
+  class Organization < ActiveRecord:Base
+  end
+Make a controller file called organizations_controller.rb, lowercase, underscore, plural.
+In that file, write:
+    class OrganizationsController < ApplicationController
+    And then you’d write all your methods, logic, etc.
+    end
+While in that file, might as well write these items:
+
+def index
+end
+def show
+end
+def update
+end
+def new
+end
+def create
+end
+def destroy
+end
+
+and also might as well add:
+
+private
+
+def user_params
+      params.require(:organization).permit(:whatever, :whatever, :whatever)
+
+Go to the config/routes.rb file
+In that file, create a file named resources :organizations
+  (NOTE: this will go directly under the “Rails.application.routes.draw do” command.)
+Create a folder called views/organizations
+  In that folder, create a file named views/organizations/index.html.erb
+And then you’d go ahead and create your files!
+(optional) run bin/rake routes to see current routes
+(optional) set root to organization#index
+
+
+Some notes on this:
+
+Don’t forget you’ll need to add Bootstrap:
+  — Change application.css to application.css.scss
+  — You’ll need to add, at the top of the file:
+    @import "bootstrap-sprockets";
+    @import "bootstrap";
+  — Bobby didn’t mention it, but I think you’ll need to add these three elements (INCLUDING the slashes that apparently comment them out):
+    //= require jquery
+    //= require jquery_ujs
+    //= require bootstrap-sprockets
