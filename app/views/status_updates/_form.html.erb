@@ -1,0 +1,63 @@
+<%= form_for(@status_update) do |f| %>
+  <% if @status_update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@status_update.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @status_update.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+
+<!-- Note to me JQ: for some reason yet unknown to me, you can't put the following form class above
+the form_for notation or else your buttons won't register your actions. Huh. -->
+
+
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="col-md-offset-1 col-md-1">
+        <%= f.label :status %></div>
+        <div class="col-md-4">
+        <%= f.text_field :status, :size => 50 %>
+        </div>
+      </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+      <div class="col-md-offset-1 col-md-1">
+        <%= f.label :name %></div>
+        <div class="col-md-4">
+        <%= f.text_field :name %></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="form-group">
+        <div class="col-md-offset-1 col-md-1">
+          <%= f.label :number_of_likes %></div>
+          <div class="col-md-4">
+          <%= f.number_field :number_of_likes %></div>
+        </div>
+
+    <br>
+
+    <div class="form-group">
+      <div class="col-md-offset-2">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+
+
+    <% end %>
+
+
+<br>
+
+
+</form>

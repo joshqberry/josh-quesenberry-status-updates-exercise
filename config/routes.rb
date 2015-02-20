@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+
+  resources :status_updates
+
   root 'status_updates#index'
 
-  get 'status_updates/new'
+  get 'new' => 'status_updates#new'
 
-  get 'status_updates/show'
+  get 'show' => 'status_updates#show'
 
-  get 'status_updates/edit'
+  get 'edit' => 'status_updates#edit'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

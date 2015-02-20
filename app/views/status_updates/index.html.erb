@@ -1,2 +1,45 @@
-<h1>StatusUpdates#index</h1>
-<p>Find me in app/views/status_updates/index.html.erb</p>
+<h1>All Status Updates</h1>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Name of Updater</th>
+      <th>Number of Likes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @status_updates.each do |su| %>
+      <tr>
+        <td><%= su.status %></td>
+        <td><%= su.name %></td>
+        <td><%= su.number_of_likes %></td>
+
+
+        <!-- <td><%= link_to 'Show', task %></td> -->
+        <td><div class="text-right">
+          <%= link_to 'New', new_status_update_path, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_status_update_path(status_update), class: "btn btn-info" %>
+          <%= link_to 'New', new_status_update_path, class: "btn btn-primary" %>
+        <%= link_to 'Destroy', task, class: "btn btn-danger", method: :delete, data:
+        { confirm: 'Are you sure?' } %>
+
+
+
+        </div></td>
+
+    </tr>
+
+
+
+
+
+
+    <% end %>
+
+
+  </tbody>
+</table>

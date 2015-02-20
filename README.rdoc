@@ -20,8 +20,3 @@ Button for likes has to increment integer by one.
 Go to the config/routes.rb file
 In that file, create a file named resources :organizations
   (NOTE: this will go directly under the “Rails.application.routes.draw do” command.)
-Create a folder called views/organizations
-  In that folder, create a file named views/organizations/index.html.erb
-And then you’d go ahead and create your files!
-(optional) run bin/rake routes to see current routes
-(optional) set root to organization#index
